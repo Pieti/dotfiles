@@ -2,8 +2,29 @@
 " # GENERAL CONFIG
 " ===============================================
 
-set encoding=utf-8
-set nocompatible
+
+" vim specific config
+if !has('nvim')
+    set encoding=utf-8
+    set nocompatible
+    set background=dark
+    set autoread
+    set belloff=all
+    set history=10000
+    set hlsearch
+    set incsearch
+    set nolangremap
+    set laststatus=2
+    set showcmd                         " display incomplete commands
+    set sidescroll=1
+    set smarttab
+    set tabpagemax=50
+    set tags="./tags;,tags"
+    set ttimeoutlen=50
+    set ttyfast
+    set wildmenu
+    set wildoptions="pum,tagfile"
+endif
 
 " Space is a handy leader
 let mapleader = "\<Space>"
@@ -13,9 +34,7 @@ syntax on
 set nobackup
 set nowritebackup
 set noswapfile
-set showcmd                         " display incomplete commands
 set incsearch                       " do incremental searching
-set laststatus=2                    " always display the status line
 set autowrite                       " autowrite before running commands
 set modelines=0                     " disable modelines as a security precaution
 set nomodeline
@@ -39,7 +58,7 @@ set shiftround
 set expandtab                       " convert tabs to spaces
 
 " display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars="tab:»·,trail:·,nbsp:·"
 
 " user one space, not two, after punctuation
 set nojoinspaces
@@ -91,10 +110,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Open hotkeys
-map <C-p> :Files<CR>
-nmap <leader>; :Buffers<CR>
 
 " Quick save
 noremap <Leader>w :update<CR>
