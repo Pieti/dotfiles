@@ -7,4 +7,5 @@
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.vimrc: vim/.vimrc
     ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.local/share/nvim/site/autoload: nvim/autoload
 - shell: []
