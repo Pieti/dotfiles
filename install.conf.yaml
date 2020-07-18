@@ -1,3 +1,4 @@
 - clean: ['~']
-- link: {'~/.tmux.conf': 'tmux/.tmux.conf'}
+- link: {'~/.tmux.conf': 'tmux/.tmux.conf',
+         '~/.vimrc': 'vim/.vimrc'}
 - shell: []
