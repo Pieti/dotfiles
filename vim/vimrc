@@ -98,7 +98,7 @@ set list listchars="tab:»·,trail:·,nbsp:·"
 set nojoinspaces
 
 " Enable mouse in terminals
-set mouse=a
+" set mouse=a
 
 " Open new split panes to right and bottom
 set splitbelow
@@ -166,7 +166,9 @@ noremap <leader>w :w<cr>
 " CTRL+h to stop search highlighting
 nnoremap <C-h> :nohlsearch<cr>
 
-" Shortcuts to system registers
+" Clipboard setup
 if has('clipboard')
     set clipboard+=unnamedplus
+    nnoremap x "_x
+    nnoremap X "_X
 endif
