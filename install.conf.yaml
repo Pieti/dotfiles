@@ -9,4 +9,5 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.local/share/nvim/site/autoload: nvim/autoload
     ~/.gitconfig: git/gitconfig
+    ~/.config/fish/config.fish: env/config.fish
 - shell: []
