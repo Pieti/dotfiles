@@ -9,15 +9,21 @@ source ~/.vimrc
 " =============================================================================
 call plug#begin()
 
+" FUNCTIONAL PLUGINS
 Plug 'editorconfig/editorconfig-vim'    " editorconfig support
 Plug 'justinmk/vim-sneak'               " jump to any location specified by two characters (s{char}{char})
 Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
 
+" VISUAL PLUGINS
 Plug 'itchyny/lightline.vim'            " light and configurable statusline
 Plug 'machakann/vim-highlightedyank'    " highlight yank
+Plug 'morhetz/gruvbox'                  " gruvbox theme
 
 call plug#end()
 
 " =============================================================================
 " # NeoVim specific config
 " =============================================================================
+
+"set termguicolors
+autocmd vimenter * colorscheme gruvbox
