@@ -1,4 +1,5 @@
 [alias]
+    aa = add --all :/
     st = status -sb
     br = branch -vv
     bra = branch -vv --all
