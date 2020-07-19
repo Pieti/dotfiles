@@ -8,3 +8,5 @@ abbr -a yr 'cal -y'
 abbr -a e nvim
 abbr -a g git
 abbr -a vimdiff 'nvim -d'
+abbr -a l ls
+abbr -a ... ../..
