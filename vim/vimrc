@@ -2,53 +2,87 @@
 " # GENERAL CONFIG
 " ===============================================
 
+" ====== VIM SPECIFIC CONFIG =====
 
-" vim specific config
+" Set vim config similar to nvim defaults
+" based on tpope/vim-sensible
 if !has('nvim')
-    set encoding=utf-8
-    set nocompatible
-    set background=dark
+    " Enable filetype detection
+    if has('autocmd')
+        filetype plugin indent on
+    endif
+    if has('syntax') && !exists('g:syntax_on')
+        syntax enable
+    endif
+
+    set autoindent
     set autoread
+    set background=dark
+    set backspace=indent,eol,start
     set belloff=all
+    set complete-=i                     " no included files in complete
+    set display+="lastline,msgsep"
+    set encoding=utf-8
     set history=10000
     set hlsearch
     set incsearch
-    set nolangremap
     set laststatus=2
+    set nocompatible
+    set nolangremap
+    set nrformats-=octal
+    set sessionoptions-=options
     set showcmd                         " display incomplete commands
     set sidescroll=1
     set smarttab
     set tabpagemax=50
-    set tags="./tags;,tags"
+    set tags=./tags;,tags
+    set ttimeout
     set ttimeoutlen=50
     set ttyfast
+    set ruler                           " show the cursor position at all times
     set wildmenu
     set wildoptions="pum,tagfile"
+
+    if v:version > 703 || v:version == 703 && has("patch541")
+        set formatoptions+=j            " delete comment character when joining commented lines
+    endif
+
+    if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
+        set shell=/usr/bin/env\ bash
+    endif
+
+    if !empty(&viminfo)
+        set viminfo^=!
+    endif
+
+
+    " Allow color schemes to do bright colors without forcing bold.
+    if &t_Co == 8 && $TERM !~# '^Eterm'
+        set t_Co=16
+    endif
+
+    " Load matchit.vim, but only if the user hasn't installed a newer version.
+    if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+        runtime! macros/matchit.vim
+    endif
 endif
 
-" Space is a handy leader
-let mapleader = "\<Space>"
-
-syntax on
+" ===== SHARED CONFIG =====
 
 set nobackup
 set nowritebackup
 set noswapfile
-set incsearch                       " do incremental searching
 set autowrite                       " autowrite before running commands
-set modelines=0                     " disable modelines as a security precaution
-set nomodeline
+set nomodeline                      " disable modelines
 set ignorecase                      " ignore case when searching
 set smartcase                       " unless the search contains a capital letter
-set noerrorbells visualbell t_vb=   " disable error sounds and flashes
-set t_md=                           " disable bold font
 set cmdheight=2                     " git a bit more room for commands
 set updatetime=300                  " avoid delays by using shorter updatetime
-set ruler                           " show the cursor position at all times
-set scrolloff=5                     " scroll the screen before reaching the edge
-
+set scrolloff=5                     " scroll the screen before reaching vertical edge
+set sidescrolloff=5                 " scroll the screen before reaching horizontal edge
 set number                          " show line numbers
 set relativenumber                  " ...relative to the cursor
+set viewoptions-=options
 
 " indentation, a tab is four spaces wide
 set tabstop=4
@@ -75,19 +109,12 @@ set lazyredraw
 " Always use vertical diffs
 set diffopt+=vertical
 
-" Enable filetype detection
-filetype plugin indent on
 
 
 " === VARIABLES ===
 
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting
-let g:is_posix=1
-
 " Enable async only configuration
 let g:has_async = v:version >=800 || has('nvim')
-
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
@@ -95,7 +122,17 @@ let g:html_indent_tags = 'li\|p'
 
 " === KEY MAPPING ===
 
+" Space is a handy leader
+let mapleader = "\<Space>"
+
 nmap Q <Nop>
+
+if empty(mapcheck('<C-U>', 'i'))
+    inoremap <C-U> <C-G>u<C-U>
+endif
+if empty(mapcheck('<C-W>', 'i'))
+    inoremap <C-W> <C-G>u<C-W>
+endif
 
 " Move lines around
 nnoremap <S-Up> :m-2<CR>
@@ -127,12 +164,9 @@ noremap <leader>q :q<cr>
 noremap <leader>w :w<cr>
 
 " CTRL+h to stop search highlighting
-vnoremap <C=h> :nohlsearch<cr>
-nnoremap <C=h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
 
 " Shortcuts to system registers
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+Y
-noremap <Leader>P "+P
-
+if has('clipboard')
+    set clipboard+=unnamedplus
+endif
