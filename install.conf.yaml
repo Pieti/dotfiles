@@ -8,4 +8,5 @@
     ~/.vimrc: vim/vimrc
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.local/share/nvim/site/autoload: nvim/autoload
+    ~/.gitconfig: git/gitconfig
 - shell: []
