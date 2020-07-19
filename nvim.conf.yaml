@@ -1,0 +1,9 @@
+- clean:
+    ~/:
+        recursive: False
+    ~/.config:
+        recursive: True
+- link:
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.local/share/nvim/site/autoload: nvim/autoload
+- shell: []

@@ -3,11 +3,11 @@
         recursive: False
     ~/.config:
         recursive: True
+    ~/.local:
+        recursive: True
 - link:
     ~/.tmux.conf: tmux/tmux.conf
     ~/.vimrc: vim/vimrc
-    ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.local/share/nvim/site/autoload: nvim/autoload
     ~/.gitconfig: git/gitconfig
     ~/.config/fish/config.fish: env/config.fish
 - shell: []
