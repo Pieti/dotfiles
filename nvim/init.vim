@@ -25,5 +25,9 @@ call plug#end()
 " # NeoVim specific config
 " =============================================================================
 
-"set termguicolors
+set termguicolors
+
+" Gruvbox settings
+let g:gruvbox_contrast_dark = 'hard'
+let g:gurvbox_bold = 0
 autocmd vimenter * colorscheme gruvbox
