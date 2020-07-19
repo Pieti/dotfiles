@@ -1,3 +1,7 @@
+" Shared or Vim specific config should be in ~/.vimrc
+" With this setup Vim stays lightweight and can be used anywhere without
+" installing plugins, while Neovim is geared towards being a heavyweight code editor
+
 source ~/.vimrc
 
 " =============================================================================
@@ -15,3 +19,8 @@ Plug 'machakann/vim-highlightedyank'    " highlight yank
 
 call plug#end()
 
+" =============================================================================
+" # NeoVim specific config
+" =============================================================================
+
+set termguicolors                       " support true color terminal
