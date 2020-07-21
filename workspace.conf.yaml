@@ -1,0 +1,18 @@
+- clean:
+    ~/:
+        recursive: False
+    ~/.config:
+        recursive: True
+    ~/.local:
+        recursive: True
+    ~/bin:
+        recursive: True
+- link:
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.local/share/nvim/site/autoload: nvim/autoload
+    ~/bin/nvim: bin/nvim.appimage
+    ~/bin/fzf:
+        path: fzf/bin/fzf
+        ignore-missing: true
+- shell: ["contains $fish_user_paths ~/bin; or set -Up fish_user_paths ~/bin",
+          "fzf/install --bin"]

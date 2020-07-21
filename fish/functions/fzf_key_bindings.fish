@@ -1,0 +1,1 @@
+/home/koni/.fzf/shell/key-bindings.fish
