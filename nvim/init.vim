@@ -15,6 +15,7 @@ Plug 'justinmk/vim-sneak'               " jump to any location specified by two 
 Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
 Plug 'junegunn/fzf'                     " basic wrapper for fzf
 Plug 'junegunn/fzf.vim'                 " extended fzf functionality
+Plug 'christoomey/vim-tmux-navigator'   " navigate vim and tmux splits seamlessly
 
 " VISUAL PLUGINS
 Plug 'itchyny/lightline.vim'            " light and configurable statusline
@@ -48,6 +49,15 @@ let g:loaded_ruby_provider = 0
 " ===== FZF =====
 nnoremap <silent> <leader>f :FZF<cr>
 nnoremap <silent> <leader>F :FZF<cr>
+
+" ===== VIM-TMUX-NAVIGATOR =====
+let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_disable_when_zoomed = 1
+
+nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 
 " ===== COC =====
 
