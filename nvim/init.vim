@@ -13,7 +13,8 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'    " editorconfig support
 Plug 'justinmk/vim-sneak'               " jump to any location specified by two characters (s{char}{char})
 Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
-Plug 'junegunn/fzf', { 'dir': '~/bin/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'                     " basic wrapper for fzf
+Plug 'junegunn/fzf.vim'                 " extended fzf functionality
 
 " VISUAL PLUGINS
 Plug 'itchyny/lightline.vim'            " light and configurable statusline
@@ -22,6 +23,7 @@ Plug 'morhetz/gruvbox'                  " gruvbox theme
 
 " LANGUAGE RELATED
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dag/vim-fish'
 
 call plug#end()
 

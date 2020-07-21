@@ -2,6 +2,9 @@
 " # GENERAL CONFIG
 " ===============================================
 
+" Fish doesn't play nice with vim
+"set shell=/bin/bash
+
 " ====== VIM SPECIFIC CONFIG =====
 
 " Set vim config similar to nvim defaults
@@ -110,7 +113,6 @@ set lazyredraw
 set diffopt+=vertical
 
 
-
 " === VARIABLES ===
 
 " Enable async only configuration
@@ -125,7 +127,11 @@ let g:html_indent_tags = 'li\|p'
 " Space is a handy leader
 let mapleader = "\<Space>"
 
-nmap Q <Nop>
+" Unmap some thing that I might hit accidentally
+nmap Q <nop>
+nmap q: <nop>
+map <F1> <Esc>
+imap <F1> <Esc>
 
 if empty(mapcheck('<C-U>', 'i'))
     inoremap <C-U> <C-G>u<C-U>
@@ -149,7 +155,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Quick save
-noremap <Leader>w :update<CR>
+noremap <Leader>w :w<CR>
 
 " Clone paragraph
 noremap cp yap<S}>p
@@ -165,6 +171,17 @@ noremap <leader>w :w<cr>
 
 " CTRL+h to stop search highlighting
 nnoremap <C-h> :nohlsearch<cr>
+
+" Automatically jump to the end of a paste
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Hit 12<Enter> to go to line 12
+" <Enter> to go to end of file
+" <Backspace> to go to beginning of file
+nnoremap <CR> G
+nnoremap <BS> gg
 
 " Clipboard setup
 if has('clipboard')
