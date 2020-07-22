@@ -10,12 +10,13 @@ source ~/.vimrc
 call plug#begin()
 
 " FUNCTIONAL PLUGINS
+Plug 'christoomey/vim-tmux-navigator'   " navigate vim and tmux splits seamlessly
 Plug 'editorconfig/editorconfig-vim'    " editorconfig support
-Plug 'justinmk/vim-sneak'               " jump to any location specified by two characters (s{char}{char})
-Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
 Plug 'junegunn/fzf'                     " basic wrapper for fzf
 Plug 'junegunn/fzf.vim'                 " extended fzf functionality
-Plug 'christoomey/vim-tmux-navigator'   " navigate vim and tmux splits seamlessly
+Plug 'justinmk/vim-sneak'               " jump to any location specified by two characters (s{char}{char})
+Plug 'tpope/vim-fugitive'               " git plugin
+Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
 
 " VISUAL PLUGINS
 Plug 'itchyny/lightline.vim'            " light and configurable statusline
@@ -40,7 +41,7 @@ let g:gurvbox_bold = 0
 autocmd vimenter * colorscheme gruvbox
 
 " Nvim providers
-let g:python3_host_prog = '~/.local/share/nvim/site/nvim_python3/bin/python3'
+let g:python3_host_prog = '~/.local/share/nvim/site/venv3/bin/python3'
 let g:loaded_python_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
