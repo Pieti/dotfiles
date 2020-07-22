@@ -23,8 +23,8 @@ Plug 'machakann/vim-highlightedyank'    " highlight yank
 Plug 'morhetz/gruvbox'                  " gruvbox theme
 
 " LANGUAGE RELATED
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -203,3 +203,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Autoinstall coc extensions
+let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-yaml', 'coc-xml', 'coc-vimlsp']
