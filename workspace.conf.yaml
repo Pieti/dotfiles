@@ -15,6 +15,5 @@
     ~/bin/fzf:
         path: fzf/bin/fzf
         ignore-missing: true
-- shell: ["contains $fish_user_paths ~/bin; or set -Up fish_user_paths ~/bin",
-          "fzf/install --bin",
+- shell: ["fzf/install --bin",
           "nvim/setup_python_provider.sh"]

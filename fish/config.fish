@@ -6,6 +6,8 @@ set -x LANGUAGE en_US.UTF-8
 
 setup_fzf
 
+set -U fish_user_paths ~/bin ~/.local/bin
+
 abbr -a yr 'cal -y'
 abbr -a e nvim
 abbr -a g git
