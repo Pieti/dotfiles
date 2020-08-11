@@ -9,7 +9,7 @@ source ~/.vimrc
 " =============================================================================
 call plug#begin()
 
-" FUNCTIONAL PLUGINS
+" FUNCTIONAL
 Plug 'christoomey/vim-tmux-navigator'   " navigate vim and tmux splits seamlessly
 Plug 'editorconfig/editorconfig-vim'    " editorconfig support
 Plug 'junegunn/fzf'                     " basic wrapper for fzf
@@ -18,8 +18,9 @@ Plug 'justinmk/vim-sneak'               " jump to any location specified by two 
 Plug 'tpope/vim-fugitive'               " git plugin
 Plug 'tpope/vim-vinegar'                " enhanced netrw for directory browsing
 
-" VISUAL PLUGINS
+" THEME
 Plug 'itchyny/lightline.vim'            " light and configurable statusline
+Plug 'josa42/vim-lightline-coc'         " coc lightline integration
 Plug 'machakann/vim-highlightedyank'    " highlight yank
 Plug 'morhetz/gruvbox'                  " gruvbox theme
 
@@ -38,7 +39,25 @@ set termguicolors
 " Gruvbox settings
 let g:gruvbox_contrast_dark = 'hard'
 let g:gurvbox_bold = 0
-autocmd vimenter * colorscheme gruvbox
+colorscheme gruvbox
+
+" ===== LIGHTLINE =====
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste', 'coc_errors', 'coc_warnings', 'coc_ok' ],
+    \             [ 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \  'component_function': {
+    \    'cocstatus': 'coc#status',
+    \ },
+    \ }
+
+call lightline#coc#register()
 
 " Nvim providers
 let g:python3_host_prog = '~/.local/share/nvim/site/venv3/bin/python3'
@@ -185,7 +204,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -207,3 +226,4 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Autoinstall coc extensions
 let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-yaml', 'coc-xml', 'coc-vimlsp']
+
