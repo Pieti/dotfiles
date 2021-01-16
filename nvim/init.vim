@@ -225,5 +225,5 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Autoinstall coc extensions
-let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-yaml', 'coc-xml', 'coc-vimlsp']
+let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-yaml', 'coc-xml', 'coc-vimlsp']
 
