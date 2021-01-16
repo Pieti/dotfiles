@@ -1,4 +1,3 @@
 {"python.jediPath": "~/.local/share/nvim/site/venv3/lib/python3.8/site-packages/",
  "python.autoComplete.addBrackets": true,
- "python.autoUpdateLanguageServer": false,
- "python.linting.pylintPath": "~/.local/share/nvim/site/venv3/bin/pylint"}
+ "python.autoUpdateLanguageServer": false}
